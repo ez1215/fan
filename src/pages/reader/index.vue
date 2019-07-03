@@ -26,7 +26,11 @@ export default {
         })
     }
   },
-
+  onLoad: function(options) {
+    wx.setNavigationBarTitle({
+        title: options.title
+      })
+  },
   created () {
       this.load()
   }
@@ -35,7 +39,7 @@ export default {
 
 <style scoped>
   .art{
-    font-size: 14px;
+    font-size: 16px;
     background-color: ivory;
   }
 

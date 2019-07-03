@@ -18,7 +18,7 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
-const host = 'https://api.iqifan.xyz';
+const host = 'http://47.106.135.78';
 export {
   host
 }
