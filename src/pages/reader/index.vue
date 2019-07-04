@@ -1,9 +1,30 @@
 <template>
-  <div>
-    <p class="title">{{title}}</p>
-    <p class="art">{{art}}</p>
+  <div class="body">
+    <div class="main">
+      <p class="art">{{art}}</p>
+    </div>
   </div>
 </template>
+
+<style scoped>
+  .art{
+    font-size: 16px;
+    background-color: ivory;
+    
+  }
+
+  .main {
+    height: 100%;
+    width: 100%;
+  }
+
+  .body {
+    height: 100%;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+</style>
 
 <script>
 import flyio from 'flyio'
@@ -11,8 +32,7 @@ import flyio from 'flyio'
 export default {
   data () {
     return {
-      art: '',
-      title: ''
+      art: ''
     }
   },
 
@@ -36,11 +56,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .art{
-    font-size: 16px;
-    background-color: ivory;
-  }
-
-</style>

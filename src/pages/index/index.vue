@@ -10,7 +10,6 @@
 <script>
 
 export default {
-    
     onShareAppMessage: function () {
  
     },
@@ -22,19 +21,29 @@ export default {
     },
     methods : {
         qidian(){
+            wx.showLoading({
+                title: '加载中···',
+            })
             this.$fly.request({
             method: 'get', // get 请求方式
             url: '/qd'
             }).then(res => {
                 this.title = res.title
                 this.time = res.time
-            })
+                wx.hideLoading();
+            }).catch(function (error) {
+                console.log(error);
+                wx.hideLoading();
+            });
         },
         read(title) {
             wx.navigateTo({
             url: "/pages/reader/main?title="+title
           });
         }
+    },
+    onPullDownRefresh () {
+      this.qidian()
     },
     created () {
       this.qidian()
