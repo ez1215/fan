@@ -10,31 +10,42 @@
 <script>
 
 export default {
-    
     onShareAppMessage: function () {
- 
+        
     },
     data(){
         return {
-        title : '',
-        time : ''
+            title : '',
+            time : ''
         }
     },
     methods : {
         qidian(){
+            wx.showLoading({	
+                title: '加载中···',	
+            })
+
             this.$fly.request({
             method: 'get', // get 请求方式
             url: '/qd'
             }).then(res => {
                 this.title = res.title
                 this.time = res.time
-            })
+                // 停止下拉动作
+                wx.stopPullDownRefresh();
+            }).catch(function (error) {	
+                console.log(error);	
+                wx.hideLoading();	
+            });
         },
         read(title) {
             wx.navigateTo({
             url: "/pages/reader/main?title="+title
           });
         }
+    },
+    onPullDownRefresh () {	
+      this.qidian()	
     },
     created () {
       this.qidian()
@@ -49,6 +60,7 @@ export default {
         font-size: 16px;
         background-color: aliceblue;
         text-align: center;
+        padding-top: 10vh;
     }
     .read {
         text-align: center;
