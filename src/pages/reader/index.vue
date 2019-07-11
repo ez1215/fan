@@ -8,7 +8,7 @@
 
 <style scoped>
   .art{
-    font-size: 16px;
+    font-size: 35rpx;
     background-color: ivory;
     
   }
