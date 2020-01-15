@@ -18,7 +18,7 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
-const host = 'http://47.106.135.78';
+const host = 'http://47.106.135.78:6363';
 export {
   host
 }
